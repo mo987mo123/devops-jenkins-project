@@ -4,7 +4,15 @@ pipeline{
 
     agent any
     //agent { label 'Demo' }
+     
+     tools {
+        jdk 'java-17'
+        maven 'maven-3.9'
+    }
 
+    environment {
+        PATH = "/opt/homebrew/bin:$PATH"
+    }
     parameters{
 
         choice(name: 'action', choices: 'create\ndelete', description: 'Choose create/Destroy')
